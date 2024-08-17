@@ -45,7 +45,7 @@ use App\Http\Controllers\Product\ProductController;
 //
 Route::get("/", [ArticleController::class, "index"]);
 
-Route::get("/articles", [ArticleController::class, "index"]);
+Route::get("/articles", [ArticleController::class, "index"])->name("articles");
 
 Route::get("articles/detail/{id}", [ArticleController::class, "detail"]);
 
@@ -57,7 +57,7 @@ Route::post('/articles/add', [ArticleController::class,'create']);
 
 Route::get("/articles/edit/{id}",[ArticleController::class,"edit"]);
 
-Route::put("/articles/edit/{id}/update",[ArticleController::class,"update"]);
+Route::put("/articles/update/{id}",[ArticleController::class,"update"]);
 
 Route::get("/products", [ProductController::class, "index"]);
 
@@ -65,6 +65,6 @@ Route::get("/products/detail/{product}", [ProductController::class, "detail"]);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

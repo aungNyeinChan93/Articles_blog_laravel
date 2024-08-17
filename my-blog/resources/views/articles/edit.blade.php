@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row w-100">
         <div class="col-9 offset-1 mx-auto">
-            <!-- @if ($errors->any())
+            @if ($errors->any())
                 <div class="alert alert-danger">
                     <ol>
                         @foreach ($errors->all() as $error )
@@ -12,8 +12,8 @@
                         @endforeach
                     </ol>
                 </div>
-            @endif -->
-            <form action="/articles/edit/{{$article->id}}/update" method="post">
+            @endif
+            <form action="/articles/update/{{$article->id}}" method="post">
                 @csrf
                 @method("PUT")
                 <div class="mb-3">

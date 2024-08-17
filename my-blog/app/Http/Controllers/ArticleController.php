@@ -20,10 +20,11 @@ class ArticleController extends Controller
         $data = Article::latest()->paginate(5);
         return view("articles.index", ["articles" => $data]);
     }
-    public function detail($id)
+    public function detail(Article $id)
     {
-        $data = Article::find($id);
-        return view("articles.detail", ["article" => $data]);
+        // $data = Article::find($id);
+        // route model binding
+        return view("articles.detail", ["article" => $id]);
     }
 
     public function delete($id)
@@ -71,12 +72,18 @@ class ArticleController extends Controller
 
     }
     public function update( $id){
+        request()->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'category_id' => 'required',
+        ]);
+
         $article = Article::findOrFail($id);
         $article->title = request()->title;
         $article->body = request()->body;
         $article->category_id = request()->category_id;
         $article->save();
-        return redirect("/articles");
+        return redirect()->route("articles")->with("update","update success!"); //name routing and flash message
     }
 }
 //

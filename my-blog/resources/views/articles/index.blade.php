@@ -9,6 +9,12 @@
         {{session("info")}}
     </div>
  @endif
+<!-- for update flash message -->
+ @if (session("update"))
+    <div class="alert alert-success">
+        {{session("update")}}
+    </div>
+ @endif
 
 <!--for pegimation bar  -->
 {{ $articles->links() }}
