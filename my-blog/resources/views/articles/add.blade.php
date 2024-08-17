@@ -17,11 +17,11 @@
                 @csrf
                 <div class="mb-3">
                     <label>Title</label>
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="title" value="{{old("title")}}" class="form-control">
                 </div>
                 <div class="mb-3">
                     <label>Body</label>
-                    <textarea name="body" class="form-control"></textarea>
+                    <textarea name="body" class="form-control">{{old("body")}}</textarea>
                 </div>
                 <div class="mb-3">
                     <label>Category</label>
