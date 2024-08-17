@@ -16,6 +16,7 @@ class ArticleController extends Controller
         //     ["id"=>2,"title"=>"Article Two"]
         // ];
         // $data= Article::all();
+        // dd("test");
         $data = Article::latest()->paginate(5);
         return view("articles.index", ["articles" => $data]);
     }
@@ -57,6 +58,25 @@ class ArticleController extends Controller
         $article->category_id = request()->category_id;
         $article->save();
         return redirect("articles");
+    }
+
+    public function edit($id){
+        $article = Article::findOrFail($id);
+        $data = [
+            ["id" => 1, "name" => "News"],
+            ["id" => 2, "name" => "Tech"],
+            ["id" => 3, "name" => "Other"],
+        ];
+        return view("articles.edit", ["categories" => $data,"article"=>$article]);
+
+    }
+    public function update( $id){
+        $article = Article::findOrFail($id);
+        $article->title = request()->title;
+        $article->body = request()->body;
+        $article->category_id = request()->category_id;
+        $article->save();
+        return redirect("/articles");
     }
 }
 //

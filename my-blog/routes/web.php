@@ -55,6 +55,10 @@ Route::get("/articles/add", [ArticleController::class, "add"]);
 
 Route::post('/articles/add', [ArticleController::class,'create']);
 
+Route::get("/articles/edit/{id}",[ArticleController::class,"edit"]);
+
+Route::put("/articles/edit/{id}/update",[ArticleController::class,"update"]);
+
 Route::get("/products", [ProductController::class, "index"]);
 
 Route::get("/products/detail/{product}", [ProductController::class, "detail"]);

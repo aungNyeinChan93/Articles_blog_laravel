@@ -25,6 +25,9 @@
                 <a class="card-link btn btn-sm btn-info " href="{{ url("/articles/detail/$article->id") }}">
                     View Detail &raquo;
                 </a>
+                <a class="card-link btn btn-sm btn-warning " href="{{ url("/articles/edit/$article->id") }}">
+                    Edit &raquo;
+                </a>
             </div>
         </div>
     @endforeach
