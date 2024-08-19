@@ -36,17 +36,29 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+
                     <ul class="navbar-nav me-auto">
+                        {{-- for user --}}
+                        @auth
                         <li class="nav-item">
-                            <a class="nav-link text-danger fs-6" href="{{ url('/articles/add') }}">
+                            <a class="nav-link text-danger fs-6 mx-2" href="{{ url('/articles/add') }}">
                                 + Add Article
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-danger fs-6" href="{{ url('/categories/add') }}">
+                            <a class="nav-link text-danger fs-6 mx-2" href="{{ url('/categories/add') }}">
                                 + Add Category
                             </a>
                         </li>
+                        @endauth
+                        {{-- for guest --}}
+                        @guest
+                        <li class="nav-item">
+                            <a class="nav-link text-success fs-6 ms-1 fw-light mx-2" href="{{ url('/register') }}">
+                                Create Account
+                            </a>
+                        </li>
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->
