@@ -42,6 +42,11 @@
                                 + Add Article
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-danger fs-6" href="{{ url('/categories/add') }}">
+                                + Add Category
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

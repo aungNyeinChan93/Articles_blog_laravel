@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use view;
 use Illuminate\Http\Request;
 
@@ -35,12 +36,14 @@ class ArticleController extends Controller
     }
     public function add()
     {
-        $data = [
-            ["id" => 1, "name" => "News"],
-            ["id" => 2, "name" => "Tech"],
-            ["id" => 3, "name" => "Other"],
-        ];
-        return view("articles.add", ["categories" => $data]);
+        $categories = Category::all();
+
+        // $data = [
+        //     ["id" => 1, "name" => "News"],
+        //     ["id" => 2, "name" => "Tech"],
+        //     ["id" => 3, "name" => "Other"],
+        // ];
+        return view("articles.add", compact("categories"));
     }
     public function create()
     {
@@ -69,12 +72,13 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = Article::findOrFail($id);
-        $data = [
-            ["id" => 1, "name" => "News"],
-            ["id" => 2, "name" => "Tech"],
-            ["id" => 3, "name" => "Other"],
-        ];
-        return view("articles.edit", ["categories" => $data, "article" => $article]);
+        // $data = [
+        //     ["id" => 1, "name" => "News"],
+        //     ["id" => 2, "name" => "Tech"],
+        //     ["id" => 3, "name" => "Other"],
+        // ];
+        $category = Category::all();
+        return view("articles.edit", ["categories" => $category, "article" => $article]);
 
     }
     public function update($id)

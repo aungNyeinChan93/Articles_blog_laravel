@@ -18,24 +18,26 @@
                 </a>
             </div>
         </div>
-        <ul class="list-group">
-            <li class="list-group-item bg-info">
-                <b>Comments ({{ count($article->comments) }})</b>
-            </li>
-            @foreach ($article->comments as $comment)
-                <li class="list-group-item">
-                    <a href="{{ url("/comments/delete/$comment->id") }}" class="btn btn-sm btn-close ms-4 float-end">
-                    </a>
-                    {{ $comment->content }}
+        <div class="">
+            <ul class="list-group">
+                <li class="list-group-item bg-info">
+                    <b>Comments ({{ count($article->comments) }})</b>
                 </li>
-            @endforeach
-        </ul>
-        <form class="mt-2" action="{{ url('/comments/add') }}" method="post">
-            @csrf
-            <input type="hidden" name="article_id" value="{{ $article->id }}">
-            <textarea name="content" class="form-control mb-2" placeholder="New Comment"></textarea>
-            <input type="submit" value="Add Comment" class="btn btn-sm btn-warning">
-        </form>
+                @foreach ($article->comments as $comment)
+                    <li class="list-group-item">
+                        <a href="{{ url("/comments/delete/$comment->id") }}" class="btn btn-sm btn-close ms-4 float-end">
+                        </a>
+                        {{ $comment->content }}
+                    </li>
+                @endforeach
+            </ul>
+            <form class="mt-2" action="{{ url('/comments/add') }}" method="post">
+                @csrf
+                <input type="hidden" name="article_id" value="{{ $article->id }}">
+                <textarea name="content" class="form-control mb-2" placeholder="New Comment"></textarea>
+                <input type="submit" value="Comment" class="btn btn-sm btn-warning">
+            </form>
+        </div>
     </div>
 @endsection
 

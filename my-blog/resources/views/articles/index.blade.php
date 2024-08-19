@@ -34,6 +34,9 @@
                 <a class="card-link btn btn-sm btn-warning " href="{{ url("/articles/edit/$article->id") }}">
                     Edit &raquo;
                 </a>
+                <a class="btn btn-sm btn-danger ms-3" href="{{ url("/articles/delete/$article->id") }}">
+                    Delete
+                </a>
             </div>
         </div>
     @endforeach
