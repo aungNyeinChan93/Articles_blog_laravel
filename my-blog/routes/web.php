@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Product\ProductController;
+use App\Models\Comment;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,5 +68,9 @@ Route::get("/products/detail/{product}", [ProductController::class, "detail"]);
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post("/comments/add",[CommentController::class,"create"])->name("comments.add");
+
+Route::get("comments/delete/{id}",[CommentController::class,"delete"])->name("comments.delete");
 
 
