@@ -67,7 +67,7 @@ Route::get("/products/detail/{product}", [ProductController::class, "detail"]);
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post("/comments/add",[CommentController::class,"create"])->name("comments.add");
 
