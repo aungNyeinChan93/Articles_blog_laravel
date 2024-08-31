@@ -64,6 +64,7 @@ Route::put("/articles/update/{id}",[ArticleController::class,"update"]);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::redirect("/home","/");
 
 Route::post("/comments/add",[CommentController::class,"create"])->name("comments.add");
 

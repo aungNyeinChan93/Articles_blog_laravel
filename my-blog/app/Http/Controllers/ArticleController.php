@@ -49,7 +49,7 @@ class ArticleController extends Controller
         // ];
         return view("articles.add", compact("categories"));
     }
-    public function create()
+    public function create(Request $request)
     {
         // $validator = validator(request()->all(), [
         //     'title' => 'required',
@@ -65,11 +65,17 @@ class ArticleController extends Controller
             'category_id' => 'required',
         ]);
 
-        $article = new Article();
-        $article->title = request()->title;
-        $article->body = request()->body;
-        $article->category_id = request()->category_id;
-        $article->save();
+        // $article = new Article();
+        // $article->title = request()->title;
+        // $article->body = request()->body;
+        // $article->category_id = request()->category_id;
+        // $article->save();
+
+        Article::create([
+            "title"=>$request->title,
+            "body"=>$request->body,
+            "category_id"=>$request->category_id,
+        ]);
         return redirect("articles");
     }
 

@@ -17,4 +17,6 @@ class Article extends Model
     {
         return $this->hasMany('App\Models\Comment');
     }
+
+    protected $fillable =["title","body","category_id"];
 }
